@@ -13,7 +13,6 @@ A desktop-based e-commerce and inventory management application built using **C#
 6. [Screenshots](#-screenshots)
 7. [Video Demonstration](#-video-demonstration)
 8. [Project Report](#-project-report)
-9. [Author & Contributions](#-author--contributions)
 
 ---
 
@@ -87,6 +86,7 @@ https://github.com/user-attachments/assets/418a609d-77dc-48a0-85e4-395fe4eaef37
 
 ##  8. Project Report
 
+[Project Report.pdf](https://github.com/user-attachments/files/31845198/Project.Report.pdf)
 
 
 
