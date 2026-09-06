@@ -175,5 +175,7 @@ https://github.com/user-attachments/assets/a0107a10-bb0b-491e-a84e-9e7df12255c7
 
 ## 8.Project Report
 
+[Project Report.pdf](https://github.com/user-attachments/files/31878973/Project.Report.pdf)
+
 
 
