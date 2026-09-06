@@ -115,3 +115,55 @@ INSERT INTO Inventory (ProductID, StockAmount) VALUES
 (2, 30),
 (3, 100);
 GO
+
+```
+## 5.Installation & Setup
+
+1. **Clone or Download** this repository to your local machine.
+2. Open **SQL Server Management Studio (SSMS)** or Visual Studio SQL Server Object Explorer and execute the database schema script to create your database and tables.
+3. Open the solution file in **Visual Studio**.
+4. Verify your connection string matches your local environment:
+   ```csharp
+   private string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GrocerySuperShopDB;Integrated Security=True";
+
+## 6.Screenshots
+<img width="269" height="215" alt="Login Form" src="https://github.com/user-attachments/assets/c1aca6af-94b5-4404-a9ba-332dfbd70c7b" />
+
+<img width="269" height="260" alt="Register Form" src="https://github.com/user-attachments/assets/6f010f63-7a65-4ddd-a57c-ee9e4067e1b4" />
+
+<img width="640" height="362" alt="Super Admin Dashboard" src="https://github.com/user-attachments/assets/aef85180-e272-4744-b02b-b33db8480b9e" />
+
+<img width="470" height="275" alt="Amin Approvals Dashboard" src="https://github.com/user-attachments/assets/bb45c545-bad5-4538-87b6-1dfb4931c983" />
+
+<img width="581" height="271" alt="Sales Dashboard" src="https://github.com/user-attachments/assets/a333e060-fa6d-4bfa-b56e-a838cb704ad4" />
+
+<img width="509" height="302" alt="Manage Reviews Dashboard" src="https://github.com/user-attachments/assets/a2b7563f-5945-41e2-a8a6-685e9813e316" />
+
+<img width="619" height="377" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/77b3fd7c-6bb9-42aa-baf2-8b545cf60b62" />
+
+<img width="245" height="229" alt="Add new product Dashboard" src="https://github.com/user-attachments/assets/ae36c5d7-c178-4081-95e9-9771e0056341" />
+
+<img width="507" height="301" alt="Inventory Dashboard" src="https://github.com/user-attachments/assets/693edd89-dd71-4599-a022-54b985ce3dbf" />
+
+<img width="245" height="197" alt="Order Product Dashboard" src="https://github.com/user-attachments/assets/1f41ce92-7bfd-4293-a689-ceebc48484dd" />
+
+<img width="500" height="283" alt="Shop Sales Dashboard" src="https://github.com/user-attachments/assets/0de6c090-c96e-4c79-9085-f3d17632b44d" />
+
+<img width="511" height="308" alt="Offers Dashboard" src="https://github.com/user-attachments/assets/18329a17-b97a-463c-b8b7-b1f14db795f5" />
+
+<img width="244" height="212" alt="Add Offer Dashboard" src="https://github.com/user-attachments/assets/c2e5d650-9846-4d8f-9555-b3019e211286" />
+
+<img width="579" height="365" alt="Customer Dashboard" src="https://github.com/user-attachments/assets/b7d00280-1265-4215-acc0-7b7aa13717b3" />
+
+<img width="267" height="260" alt="Product Details Dashboard" src="https://github.com/user-attachments/assets/6a10535a-2dc3-4e5a-8a6e-faa467c8b00a" />
+
+<img width="473" height="305" alt="Cart Dashboard" src="https://github.com/user-attachments/assets/f8815f9c-9453-4cc2-937e-16d2430e434e" />
+
+<img width="471" height="441" alt="Checkout Dashboard" src="https://github.com/user-attachments/assets/cd72f2fa-567c-4b5c-b227-66b79bd7c787" />
+
+<img width="466" height="345" alt="Order History and Invoice Dashboard" src="https://github.com/user-attachments/assets/46b4a493-2283-4f18-bbb8-1e551e62f0b5" />
+
+<img width="245" height="184" alt="Add Review Dashboard" src="https://github.com/user-attachments/assets/8473fec9-b7bd-4f48-be08-c955ff2d8a18" />
+
+## 7.Video Demonstration
+
