@@ -19,7 +19,9 @@ A comprehensive desktop application built with **C# Windows Forms** and **SQL Se
 
 ## 1. Project Overview
 
-The Grocery Super Shop System provides an intuitive interface for customers to browse items, check available stock, manage their shopping carts, and place secure orders using precise payment options. It bridges frontend Windows Forms components directly with a relational SQL database to persist data reliably.
+## Project Overview
+
+The Grocery Super Shop Management System is a robust, enterprise-grade desktop application engineered using C# Windows Forms and SQL Server (LocalDB) to simulate and manage complete retail operations across three core user tiers. The Customer and Shopping Experience Dashboard allows users to browse inventory, check real-time stock availability, manage shopping carts via an in-memory data bridge, and execute secure checkouts with single-selection payment options. The Shop Admin Dashboard serves as the operational hub for individual store managers to handle local product listings, update inventory levels, and monitor shop-specific orders. The Super Admin Management Console provides centralized vendor oversight, account approval workflows, financial analytics tracking, security suspension controls, and a system-wide reviews dashboard. Finally, the database persistence layer ensures absolute data integrity across Users, Products, Inventory, Orders, OrderItems, and Reviews tables through strict foreign key constraints and identity configurations.
 
 ---
 
