@@ -1,0 +1,11 @@
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\bin\Debug\Grocery Super Shop.exe.config
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\bin\Debug\Grocery Super Shop.exe
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\bin\Debug\Grocery Super Shop.pdb
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\obj\Debug\Grocery Super Shop.csproj.AssemblyReference.cache
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\obj\Debug\WinFormsApp1.LoginForm.resources
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\obj\Debug\Grocery_Super_Shop.Properties.Resources.resources
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\obj\Debug\WinFormsApp1.RegisterForm.resources
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\obj\Debug\Grocery Super Shop.csproj.GenerateResource.cache
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\obj\Debug\Grocery Super Shop.csproj.CoreCompileInputs.cache
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\obj\Debug\Grocery Super Shop.exe
+C:\Users\Arabi\OneDrive\Desktop\Project C#\Grocery Super Shop\Grocery Super Shop\obj\Debug\Grocery Super Shop.pdb
