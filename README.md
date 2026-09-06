@@ -1,92 +1,117 @@
 # Grocery Super Shop Management System
 
-A desktop-based e-commerce and inventory management application built using **C# Windows Forms (.NET)** with a code-driven UI architecture.
+A comprehensive desktop application built with **C# Windows Forms** and **SQL Server (LocalDB)** designed to streamline grocery super shop operations, featuring customer management, product search, inventory checking, shopping cart functionalities, checkout workflows with single payment selection, order history, and administrative tools.
 
 ---
 
-## 📋 Table of Contents
-1. [Project Overview](#-project-overview)
-2. [Key Features & User Flow](#-key-features--user-flow)
-3. [Architecture & Design Strategy](#-architecture--design-strategy)
-4. [Database & Schema](#-database--schema)
-5. [Installation & Setup](#-installation--setup)
-6. [Screenshots](#-screenshots)
-7. [Video Demonstration](#-video-demonstration)
-8. [Project Report](#-project-report)
+## Table of Contents
+
+1. [Project Overview](#1-project-overview)
+2. [Key Features & User Flow](#2-key-features--user-flow)
+3. [Architecture & Design Strategy](#3-architecture--design-strategy)
+4. [Database & Schema](#4-database--schema)
+5. [Installation & Setup](#5-installation--setup)
+6. [Screenshots](#6-screenshots)
+7. [Video Demonstration](#7-video-demonstration)
+8. [Project Report](#8-project-report)
 
 ---
 
-##  1. Project Overview
-The **Grocery Super Shop Management System** streamlines online grocery ordering and store administration. It provides secure user authentication, product search and filtering, dynamic item quantity selection, a fully functional shopping cart, and a complete e-commerce checkout workflow.
+## 1. Project Overview
+
+The Grocery Super Shop System provides an intuitive interface for customers to browse items, check available stock, manage their shopping carts, and place secure orders using precise payment options. It bridges frontend Windows Forms components directly with a relational SQL database to persist data reliably.
 
 ---
 
-##  2. Key Features & User Flow
-* **Authentication**: Secure Login and registration system supporting role-based dashboards.
-* **Customer Dashboard**: Browse products, view details, search items, and check current stock.
-* **Item Details**: Inspect product attributes (Category, Price, Rating, Status) and choose a specific purchase quantity via a dynamic `NumericUpDown` counter.
-* **Shopping Cart (`CartForm`)**: View selected items in a grid layout, track real-time subtotal calculations, and remove unwanted entries.
-* **Checkout Flow (`CheckoutForm`)**: 
-  * Captures customer information (Name, Contact, Address, E-mail).
-  * Payment method selection (**Cash On Delivery**, **Bkash/Nagad**, **Credit/Debit Card**).
-  * Automated financial calculation: **Subtotal + $5.00 Delivery Charge**.
-  * Order summary preview table and automated return to the dashboard upon successful placement ("ORDER PLACED").
+## 2. Key Features & User Flow
+
+* **Product Catalog & Search:** Instantly load and filter inventory items by Product ID or category name.
+* **Stock Validation:** Real-time checking against shop inventory limits during ordering to prevent over-allocation.
+* **Shopping Cart Management:** Dynamic addition, quantity management, and item removal via an in-memory data bridge (`CartManager`).
+* **Secure Checkout Process:** Collects customer details (Name, Contact, Email, Address) alongside a structured payment selection via dropdown (Cash on Delivery, Bkash / Nagad, Credit / Debit Card) to avoid multi-selection errors.
+* **Order History & Invoicing:** Generates automated summaries upon successful checkout with options to print invoices and submit shop reviews.
 
 ---
 
-##  3. Architecture & Design Strategy
-* **Code-Behind UI Pattern**: To eliminate Visual Studio Designer synchronization errors and maintain strict control over layout bounds, all controls (Labels, Textboxes, Buttons, DataGridViews, NumericUpDowns) are instantiated, positioned, and event-wired programmatically in the form code-behind files (`.cs`).
-* **In-Memory Data Handling**: Utilizes `DataTable` structures for dynamic data binding across the cart and checkout interfaces.
+## 3. Architecture & Design Strategy
+
+* **Language/Framework:** C#, .NET Windows Forms (`WinFormsApp1`)
+* **Database Driver:** `System.Data.SqlClient`
+* **UI Structure:** Multi-form architecture (`CustomerDashboard`, `ProductDetailsForm`, `CartDashboard`, `CheckoutForm`, `OrderHistoryDashboard`)
+* **State Management:** Utilizes a static `CartManager` class with a persistent `DataTable` container to pass order lines smoothly across transaction forms.
 
 ---
 
-##  4. Database & Schema
-* **Engine**: SQL Server / LocalDB.
-* **Schema File**: Available in the repository as `DatabaseSchema.sql`.
-* **Key Queries**: Implements parameterized CRUD operations, filtering queries, and aggregation logic for order totals.
+## 4. Database & Schema
 
----
+Run the following complete SQL Server script to create your database, tables, and seed initial records:
 
-##  5. Installation & Setup
-1. Clone the repository:
- 
----
+```sql
+-- Create the database if it doesn't already exist
+CREATE DATABASE GrocerySuperShopDB;
+GO
 
-##  6. Screenshots
+USE GrocerySuperShopDB;
+GO
 
-<img width="303" height="304" alt="Login Form" src="https://github.com/user-attachments/assets/46762db3-e3ff-481b-9c4e-5ff67631f5f0" />
+-- 1. Products Table
+CREATE TABLE Products (
+    ProductID INT IDENTITY(1,1) PRIMARY KEY,
+    ProductName VARCHAR(100) NOT NULL,
+    Category VARCHAR(50) NOT NULL,
+    Price DECIMAL(18,2) NOT NULL
+);
+GO
 
-<img width="407" height="375" alt="Register Form" src="https://github.com/user-attachments/assets/16af5902-2dc2-4008-b52c-7973f37dabce" />
+-- 2. Inventory Table (Tracks stock amounts for products)
+CREATE TABLE Inventory (
+    InventoryID INT IDENTITY(1,1) PRIMARY KEY,
+    ProductID INT FOREIGN KEY REFERENCES Products(ProductID) ON DELETE CASCADE,
+    StockAmount INT NOT NULL
+);
+GO
 
-<img width="799" height="480" alt="Super Admin Dashboard" src="https://github.com/user-attachments/assets/ce3095fc-5d47-4a12-99f1-0b0f6734ba0b" />
+-- 3. Reviews Table (Stores feedback/reviews submitted from OrderHistoryDashboard)
+CREATE TABLE Reviews (
+    ReviewID INT IDENTITY(1,1) PRIMARY KEY,
+    ShopName VARCHAR(100) NOT NULL,
+    ReviewText VARCHAR(MAX) NOT NULL,
+    ReviewDate DATETIME DEFAULT GETDATE()
+);
+GO
 
-<img width="798" height="480" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/add01d79-07c4-4263-9c66-c12211f49f94" />
+-- 4. Orders Table (Stores customer checkout and shipping details)
+CREATE TABLE Orders (
+    OrderID INT IDENTITY(1,1) PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    Contact VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    ShippingAddress VARCHAR(255) NOT NULL,
+    PaymentMethod VARCHAR(50) NOT NULL,
+    OrderDate DATETIME DEFAULT GETDATE(),
+    TotalAmount DECIMAL(18,2) NOT NULL
+);
+GO
 
-<img width="798" height="480" alt="Offers Dashboard" src="https://github.com/user-attachments/assets/cfc426de-e453-446d-9a0e-deafd589aec4" />
+-- 5. OrderItems Table (Stores the individual products linked to each order)
+CREATE TABLE OrderItems (
+    OrderItemID INT IDENTITY(1,1) PRIMARY KEY,
+    OrderID INT FOREIGN KEY REFERENCES Orders(OrderID) ON DELETE CASCADE,
+    ProductID INT FOREIGN KEY REFERENCES Products(ProductID),
+    Quantity INT NOT NULL,
+    UnitPrice DECIMAL(18,2) NOT NULL
+);
+GO
 
-<img width="783" height="541" alt="Customer Dashboard" src="https://github.com/user-attachments/assets/5095c179-38a7-4008-997e-a2cac7b863ef" />
+-- Initial Sample Data to populate your Product & Inventory grids
+INSERT INTO Products (ProductName, Category, Price) VALUES 
+('Organic Milk', 'Dairy', 3.50),
+('Whole Wheat Bread', 'Bakery', 2.50),
+('Fresh Apples', 'Produce', 4.00);
+GO
 
-<img width="775" height="531" alt="Item Details Dashboard" src="https://github.com/user-attachments/assets/82b03fa5-e297-462d-9f15-16a3063d9a7d" />
-
-<img width="633" height="483" alt="Shopping Cart Dashboard" src="https://github.com/user-attachments/assets/c09254ac-89fa-49ed-b25e-696b3ee8ebe3" />
-
-<img width="533" height="691" alt="Checkout Dashboard" src="https://github.com/user-attachments/assets/d31b89cf-3f5b-431c-870d-1b6fb313d188" />
-
-
----
-
-##  7. Video Demonstration
-
-
-
-https://github.com/user-attachments/assets/418a609d-77dc-48a0-85e4-395fe4eaef37
-
-
----
-
-##  8. Project Report
-
-[Project Report.pdf](https://github.com/user-attachments/files/31845198/Project.Report.pdf)
-
-
-
+INSERT INTO Inventory (ProductID, StockAmount) VALUES 
+(1, 50),
+(2, 30),
+(3, 100);
+GO
